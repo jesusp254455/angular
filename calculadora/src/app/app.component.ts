@@ -9,14 +9,27 @@ export class AppComponent {
   title = 'calculadora';
   constructor(){}
   pant2="";
-  operador!: number;
-  
+  pant1="";
+  operador!: string;
+  c= "";
+  parentesis= true;
+   res!: number;
+   br:string= "";
   //calculeitor
-  port(value:string){ 
-    this.pant2 = value;
+  port(){ 
+    this.operador = "%";
+    if(this.operador == "%"){
+      this.pant1 = this.pant2;
+      this.pant2 = "";
+    }
   }
-  div(value:string){ 
-    this.pant2 = value;
+  div(){ 
+    this.operador = "/";
+    if (this.operador == "/") {
+        this.pant1 = this.pant2;
+        this.pant2 = "";
+    }
+    
   }
 
   num7(value:string){ 
@@ -31,8 +44,14 @@ export class AppComponent {
     this.pant2 = this.pant2 +value;
   }
 
-  multi(value:string){ 
-    this.pant2 = value;
+  multi(){ 
+    this.operador = "x";
+    if(this.operador == "x"){
+      this.pant1 = this.pant2;
+      this.pant2 = "";
+    }
+
+    
   }
 
   num4(value:string){ 
@@ -45,8 +64,13 @@ export class AppComponent {
     this.pant2 = this.pant2 +value;
   }
 
-  menos(value:string){ 
-    this.pant2 = value;
+  menos(){ 
+    this.operador = "-";
+    if (this.operador == "-") {
+      this.pant1 = this.pant2;
+      this.pant2 = " ";
+    }
+    
   }
 
   num1(value:string){ 
@@ -59,10 +83,16 @@ export class AppComponent {
 
   num3(value:string){ 
     this.pant2 = this.pant2 +value;
+    
   }
 
-  suma(value:string){ 
-    this.pant2 = value;
+  suma(){ 
+    this.operador = "+"
+    if(this.operador == "+"){
+    this.pant1 = this.pant2;
+    this.pant2 = " ";
+    }
+    
   }
 
   num0(value:string){ 
@@ -72,4 +102,59 @@ export class AppComponent {
   punto(value:string){ 
     this.pant2 = value;
   }
+
+  borrat(value:string){
+    this.pant2 = value;
+    this.pant1 = value;
+  }
+
+  parent(){
+    if(this.parentesis == true){
+      this.pant2 = this.pant2 + "(";
+    this.parentesis = false;
+    }
+    else if( this.parentesis == false){
+      this.pant2 = this.pant2 + ")";
+      this.parentesis = true;
+    }
+  }
+  f1(masmenos:string) {
+      this.pant2 = masmenos;
+    }
+
+    igual(){
+      if(this.operador == "+"){
+      this.res = Number(this.pant1) + Number(this.pant2);
+        this.pant1 = " ";
+        this.pant2 = this.res.toString();
+      }
+      if(this.operador == "-"){
+        this.res = Number(this.pant1) - Number(this.pant2);
+          this.pant1 = " ";
+          this.pant2 = this.res.toString();
+        }
+        if(this.operador == "x"){
+          this.res = Number(this.pant1) * Number(this.pant2);
+            this.pant1 = " ";
+            this.pant2 = this.res.toString();
+          }
+          if(this.operador == "/"){
+            this.res = Number(this.pant1) / Number(this.pant2);
+              this.pant1 = " ";
+              this.pant2 = this.res.toString();
+            }
+            if(this.operador == "%"){
+              this.res = Number(this.pant2) * Number(this.pant1) / 100;
+              this.pant1 = " ";
+              this.pant2 = this.res.toString();
+            }
+    }    
+
+    borra1(){
+      for( let b = 0; b < this.pant2.length-1; b++){
+        this.br =this.br+this.pant2[b];
+      }
+      this.pant2=this.br;
+      this.br = "";
+    }
 }

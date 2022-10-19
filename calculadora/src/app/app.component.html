@@ -1,12 +1,14 @@
 
  
  <div class="content">
-  <input type="text" id="pant1" disabled><br>
-  <input type="text" [(ngModel)]="pant2">
+  <input type="text" id="pant1" [(ngModel)]="pant1" disabled><br>
+  <input type="text" [(ngModel)]="pant2" disabled>
       <th class="a">
-        <span class="material-symbols-outlined icono">
-          backspace
-          </span>
+        <button (click)="borra1()" class="cvb">
+          <span class="material-symbols-outlined icono">
+            backspace
+            </span>
+        </button>
       </th>
   
     <span class="material-symbols-outlined icon">
@@ -15,34 +17,34 @@
   <hr>
   <table>
     <tr>
-      <th> <button>C</button> </th>
-      <th> <button>()</button> </th>
-      <th> <button (click)="port('%')">%</button> </th>
-      <th> <button (click)="div('/')">/</button> </th>
+      <th> <button (click)="borrat('')">C</button> </th>
+      <th> <button (click)="parent()">()</button> </th>
+      <th> <button (click)="port()">%</button> </th>
+      <th> <button (click)="div()">/</button> </th>
     </tr>
     <tr>
       <th> <button (click)="num7('7')">7</button> </th>
       <th> <button (click)="num8('8')">8</button> </th>
       <th> <button (click)="num9('9')">9</button> </th>
-      <th> <button (click)="multi('x')">x</button> </th>
+      <th> <button (click)="multi()">x</button> </th>
     </tr>
     <tr>
       <th> <button (click)="num4('4')">4</button> </th>
       <th> <button (click)="num5('5')">5</button> </th>
       <th> <button (click)="num6('6')">6</button> </th>
-      <th> <button (click)="menos('-')">-</button> </th>
+      <th> <button (click)="menos()">-</button> </th>
     </tr>
     <tr>
       <th> <button (click)="num1('1')">1</button> </th>
       <th> <button (click)="num2('2')">2</button> </th>
       <th> <button (click)="num3('3')">3</button> </th>
-      <th> <button (click)="suma('+')">+</button> </th>
+      <th> <button (click)="suma()">+</button> </th>
     </tr>
     <tr>
-      <th> <button>+/-</button> </th>
+      <th> <button (click)="f1('+/-')">+/-</button> </th>
       <th> <button (click)="num0('0')">0</button> </th>
       <th> <button (click)="punto('.')">.</button> </th>
-      <th> <button  class="igual">=</button> </th>
+      <th> <button (click)="igual()" class="igual">=</button> </th>
     </tr>
     
   </table>
