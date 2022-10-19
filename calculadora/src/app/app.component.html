@@ -4,11 +4,11 @@
   <input type="text" id="pant1" [(ngModel)]="pant1" disabled><br>
   <input type="text" [(ngModel)]="pant2" disabled>
       <th class="a">
-        <button (click)="borra1()" class="cvb">
-          <span class="material-symbols-outlined icono">
+        <a>
+          <span (click)="borra1()" class="material-symbols-outlined icono">
             backspace
             </span>
-        </button>
+        </a>
       </th>
   
     <span class="material-symbols-outlined icon">
@@ -41,9 +41,9 @@
       <th> <button (click)="suma()">+</button> </th>
     </tr>
     <tr>
-      <th> <button (click)="f1('+/-')">+/-</button> </th>
+      <th> <button (click)="f1('(-')">+/-</button> </th>
       <th> <button (click)="num0('0')">0</button> </th>
-      <th> <button (click)="punto('.')">.</button> </th>
+      <th> <button (click)="punto()">,</button> </th>
       <th> <button (click)="igual()" class="igual">=</button> </th>
     </tr>
     

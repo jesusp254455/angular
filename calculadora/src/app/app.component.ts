@@ -15,6 +15,7 @@ export class AppComponent {
   parentesis= true;
    res!: number;
    br:string= "";
+   puntos=false;
   //calculeitor
   port(){ 
     this.operador = "%";
@@ -99,8 +100,10 @@ export class AppComponent {
     this.pant2 = this.pant2 +value;
   }
 
-  punto(value:string){ 
-    this.pant2 = value;
+  punto(){ 
+    if (this.puntos == false) {
+      this.pant2 =this.pant2+","
+    }
   }
 
   borrat(value:string){
@@ -123,6 +126,7 @@ export class AppComponent {
     }
 
     igual(){
+      this.puntos = false;
       if(this.operador == "+"){
       this.res = Number(this.pant1) + Number(this.pant2);
         this.pant1 = " ";
