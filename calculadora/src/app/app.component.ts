@@ -102,7 +102,7 @@ export class AppComponent {
 
   punto(){ 
     if (this.puntos == false) {
-      this.pant2 =this.pant2+","
+      this.pant2 =this.pant2+"."
     }
   }
 
